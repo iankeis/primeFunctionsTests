@@ -4,12 +4,13 @@
   "description": "Test suite for testing primeFunctions",
   "main": "primeFunctions.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha || true"
   },
-  "author": "",
+  "author": "Ian Kieswether",
   "license": "ISC",
   "devDependencies": {
-    "chai": "*",
-    "mocha": "*"
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "underscore": "^1.9.1"
   }
 }

@@ -1,21 +1,8 @@
-const chai = require('chai');
-const describe = require('mocha').describe;
-const it = require('mocha').it;
-// const primeGen = require('../primeFunctions');
-// const cumulativeSum = require('../primeFunctions');
-// const maxPrimeSum = require('../primeFunctions');
-// import {primeGen} from '../primeFunctions';
-// import {cumulativeSum} from '../primeFunctions';
-// import {maxPrimeSum} from '../primeFunctions';
-// import primeFunctions;
-const pf = require('../primeFunctions');
-
-let primeFuncs = pf;
 
 describe('Test for Correctness', function () {
   describe('primeGen', function () {
     it('primeGen(10) = [2, 3, 5, 7]', function () {
-      chai.expect(pf.primeGen(10)).to.deep.equal([2,3,5,7]);
+      chai.expect(primeGen(10)).to.deep.equal([2,3,5,7]);
     });
     it('primeGen(20) = [2, 3, 5, 7, 11, 13, 17, 19]', function () {
       chai.expect(primeGen(20)).to.deep.equal([2, 3, 5, 7, 11, 13, 17, 19]);
@@ -33,10 +20,10 @@ describe('Test for Correctness', function () {
 
   describe('maxPrimeSum', function () {
     it('maxPrimeSum(100) = [41,6]', function () {
-      chai.expect(maxPrimeSum(100)).to.have.deep.members({primeNum: 41, length: 6});
+      chai.expect(maxPrimeSum(100)).to.deep.equal( [41, 6] );
     });
     it('maxPrimeSum(1000) = [953, 21]', function () {
-      chai.expect(maxPrimeSum(1000)).to.have.deep.members({primeNum: 953, length: 21});
+      chai.expect(maxPrimeSum(1000)).to.deep.equal( [953, 21] );
     });
   });
 });
