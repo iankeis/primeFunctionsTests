@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>TestSuite2</title>
+  <link href="https://unpkg.com/mocha@6.2.2/mocha.css" rel="stylesheet"/>
 </head>
 <body>
+
+<div id="mocha"></div>
+
+<!-- Imports -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+<script src="https://unpkg.com/chai@4.2.0/chai.js"></script>
+<script src="https://unpkg.com/mocha@6.2.2/mocha.js"></script>
+
+
+<script>mocha.setup('bdd')</script>
+
+<!-- File to be tested -->
+<script type="text/javascript" src="primeFunctions2.js"></script>
+
+<!-- test file -->
+<script type="text/javascript" src="test/testPerformance.js"></script>
+
+<script>
+  mocha.checkLeaks();
+  mocha.run();
+</script>
 
 </body>
 </html>

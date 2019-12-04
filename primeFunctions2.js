@@ -32,29 +32,41 @@ _ = require('underscore');
     const primes = primeGen(num);
     let primeList;
     let sum = [];
+    let currentMaxLength = 0;
 
     let i = 2;
     while( i < primes.length ){
       primeList = primes.slice(0, i);
       sum = cumulativeSum(primeList);
 
-      if(_.last(sum) > num){ break; }
+      if( _.last(sum) > num ){ break; }
+
       if(primes.indexOf(sum[sum.length-1]) >= 0){
-        returnVal.push(_.object([ 'primeNum', 'length' ], [sum[sum.length-1], sum.length]));
+        if(sum.length > currentMaxLength){
+          currentMaxLength = sum.length;
+          returnVal.push(_.object([ 'primeNum', 'length' ], [sum[sum.length-1], sum.length]));
+        } else {
+          break;
+        }
       }
 
       while( primeList.shift() ){
         sum = cumulativeSum(primeList);
-        if(_.last(sum) > num){ break; }
+
+        if( _.last(sum) > num ){ break; }
+
         if(primes.indexOf(sum[sum.length-1]) >= 0){
-          returnVal.push(_.object([ 'primeNum', 'length' ], [sum[sum.length-1], sum.length]));
+          if(sum.length > currentMaxLength){
+            currentMaxLength = sum.length;
+            returnVal.push(_.object([ 'primeNum', 'length' ], [sum[sum.length-1], sum.length]));
+          } else {
+            break;
+          }
         }
       }
       i++;
-
     }
+
     var obj =  _.max(returnVal, function(pair){ return pair.length; });
     return [obj.primeNum, obj.length];
   }
-
-  console.log(maxPrimeSum(1000));
